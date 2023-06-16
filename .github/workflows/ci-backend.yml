@@ -8,10 +8,11 @@ on:
     paths:
       - 'sgcmapi/**'
 
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
+# permissions:
+#   contents: write
+#   pull-requests: write
+#   issues: write
+#   packages: write
 
 jobs:
   compile:
@@ -40,6 +41,7 @@ jobs:
         working-directory: sgcmapi/
         run: mvn test
   merge:
+    permissions: write-all
     needs: test
     runs-on: ubuntu-latest
     steps:
